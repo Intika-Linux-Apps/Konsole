@@ -1140,8 +1140,10 @@ QString Session::getDynamicTitle()
         dir = process->currentDir(&ok);
     }
     if(!ok) {
-        title.replace(QLatin1String("%d"), QStringLiteral("-"));
-        title.replace(QLatin1String("%D"), QStringLiteral("-"));
+        title.replace(QLatin1String("%d"), QStringLiteral("~"));
+        title.replace(QLatin1String("%D"), QStringLiteral("~"));
+        //title.append(QStringLiteral("!"));
+        //title.prepend(QLatin1String("%D"), QStringLiteral("!"));
     } else {
         if (title.contains(QLatin1String("%D"))) {
             const QString homeDir = process->userHomeDir();
